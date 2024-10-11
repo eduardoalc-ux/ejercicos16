@@ -1,1 +1,6 @@
-
+#EJERCICIO 1
+def contar_ocurrencias(palabras):
+    ocurrencias = {}
+    for palabra in palabras:
+        ocurrencias[palabra] = ocurrencias.get(palabra, 0) + 1
+    return ocurrencias
