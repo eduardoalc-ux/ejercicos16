@@ -4,3 +4,155 @@ def contar_ocurrencias(palabras):
     for palabra in palabras:
         ocurrencias[palabra] = ocurrencias.get(palabra, 0) + 1
     return ocurrencias
+
+#EJERCICIO 2
+dic1={'a':1, 'b':2}
+dic2={'b':3, 'c':4}
+print (f"a:{dic1['a']},b:{dic1['b']+dic2['b']},c:{dic2['c']}")
+
+#EJERCICIO 3
+def frecuencia_numeros(numeros):
+    frecuencia = {}
+    for num in numeros:
+        frecuencia[num] = frecuencia.get(num, 0) + 1
+    return frecuencia
+
+#EJERCICIO 4
+palabras =["hola", "mundo", "python", "programación"]
+longitud =5
+wordd=[palabra for palabra in palabras 
+                if len(palabra)>=longitud]
+print (wordd)
+
+#EJERCICIO 5
+
+def invertir(lista):
+    return [(b, a) for a, b in lista]
+tuplas = [(1, 2), (3, 4), (5, 6)]
+resultado = invertir(tuplas)
+print(resultado)
+
+#EJERCICIO 6
+def obtener_valor_mas_frecuente(lista_de_numeros):
+    conteo_numeros = {}
+    
+    for numero in lista_de_numeros:
+        if numero in conteo_numeros:
+            conteo_numeros[numero] += 1
+        else:
+            conteo_numeros[numero] = 1
+            
+    max_frecuencia = 0
+    valor_frecuente = None
+    
+    for numero, frecuencia in conteo_numeros.items():
+        if frecuencia > max_frecuencia:
+            max_frecuencia = frecuencia
+            valor_frecuente = numero
+            
+    return valor_frecuente
+
+numeros_lista = [1, 2, 3, 1, 2, 1]
+resultado_final = obtener_valor_mas_frecuente(numeros_lista)
+print(resultado_final)
+
+
+#EJERCICIO 7
+def es_subconjunto(conjunto1, conjunto2):
+    return conjunto1.issubset(conjunto2):
+conjunto1 = {1, 2, 3}
+conjunto2 = {1, 2, 3, 4, 5}
+resultado = es_subconjunto(conjunto1, conjunto2)
+print(resultado)
+
+#EJERCICIO 8
+def agrupar_por_edad(personas):
+    agrupadas = {}
+    for p in personas:
+        agrupadas.setdefault(p['edad'], []).append(p['nombre'])
+    return agrupadas
+
+personas = [
+    {"nombre": "Eduardo", "edad": 20},
+    {"nombre": "Carmen", "edad": 21},
+    {"nombre": "Veronica", "edad": 30},
+    {"nombre": "Lucero", "edad": 35}
+]
+
+resultado = agrupar_por_edad(personas)
+print(f"personas por edad: {resultado}")
+print("\n")
+
+#EJERCICIO 9
+def merge_sort(lista):
+    if len(lista) <= 1:
+        return lista
+    medio = len(lista) // 2
+    return mezclar(merge_sort(lista[:medio]), merge_sort(lista[medio:]))
+
+def mezclar(izquierda, derecha):
+    resultado = []
+    while izquierda and derecha:
+        resultado.append(izquierda.pop(0) if izquierda[0] < derecha[0] else derecha.pop(0))
+    return resultado + izquierda + derecha
+
+numeros = [38, 27, 43, 3, 9, 82, 10]
+resultado = merge_sort(numeros)
+
+print(f"numeros ordenados: {resultado}")
+print("\n")
+
+#EJERCICIO 10
+def eliminar_menores(lista, limite):
+    return [num for num in lista if num >= limite]
+
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+limite = 5
+print(eliminar_menores(numeros, limite))
+
+#EJERCICIO 11
+def flatten_list(nested_list):
+    return [elemento for sublist in nested_list for elemento in sublist]
+
+
+nested_list = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
+print(flatten_list(nested_list))
+
+#EJERCICIO 12
+def calcular(numeros):  
+    numeros.sort()
+    n = len(numeros)
+    if n % 2 == 1:  
+        mediana = numeros[n // 2]
+    else: 
+        mediana = (numeros[n // 2 - 1] + numeros[n // 2]) / 2
+    return mediana
+numeros = [1, 3, 2, 4, 5]
+print(calcular(numeros))  
+
+#EJERCICIO 13
+def duplicar(lista):
+    return [num for num in lista for _ in range(2)]
+numeros = [1, 2, 3]
+resultado = duplicar(numeros)
+print(resultado) 
+
+#EJERCICIO 14
+def contar_palabras(frases):
+    return {i: len(frase.split()) for i, frase in enumerate(frases)}
+
+frases = ["Hola mundo", "Python es genial", "Me gusta programar"]
+print(contar_palabras(frases))
+
+#EJERCICIO 15
+diccionario = {'a': 10, 'b': 20, 'c': 5}
+maximo = max(diccionario, key=diccionario.get)
+print(maximo)
+
+#EJERCICIO 16
+palabras = ["rotador", "reconocer", "hola", "radar","salas"]
+palindromos = []
+for palabra in palabras:
+    if palabra == palabra[::-1]:
+        palindromos.append(palabra)
+print(palindromos)
